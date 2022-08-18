@@ -42,38 +42,14 @@ const search = (e) => {
 };
 //click on the show in the show list to add it to the queued shows 
 queuedList.addEventListener('click', function handleClick(e) {
-   e.target.remove();
-   listList.append(e.target);
+    e.target.remove();
+    getShows ();
+   //listList.append(e.target);
 });
 listList.addEventListener('click', function handleClick(e) {
+    getShows();
     queuedList.append(e.target);
 })
-/* const renderQueue = () => {
-    listList.innerHTML = ''
-    queued.forEach(show => queueShow(show))
-  } 
-  
-  const queueShow = show => {
-    const li = document.createElement("li");
-    li.textContent = show;
-    show.addEventListener("click", clickToRemove);
-    queuedList().appendChild(li);
-  } 
-/* const clickToAdd = e => {
-    list.addEventListener ("click", clickToAdd);
-    queued.push ()
-    //queuedList().remove() */
-//click on show to remove
-/*function clickToRemove(show) {
-    queuedList.addEventListener("click", function () {
-        queuedList.remove(show);
-    });
-}
-function clickToRemove(show) {
-    queuedList.addEventListener("click", function () {
-        queuedList.append(show);
-    }); */
-
 function addSearchButton() {
     searchButton.addEventListener('click', search);
 }
