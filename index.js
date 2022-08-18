@@ -16,6 +16,7 @@ const listList = document.getElementById ('list')
 //be able to list the shows
 const getShows = () => {
     fetch(baseUrl + '/shows')
+//returns promise 
     .then(response => response.json())
     .then(data => {
       shows = data;
