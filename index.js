@@ -41,6 +41,9 @@ const search = (e) => {
     //console.log(shows)
     renderShows(filteredShows);
 };
+function addSearchButton() {
+    searchButton.addEventListener('click', search);
+}
 //click on the show in the show list to add it to the queued shows 
 queuedList.addEventListener('click', function handleClick(e) {
     e.target.remove();
@@ -50,7 +53,5 @@ listList.addEventListener('click', function handleClick(e) {
     getShows();
     queuedList.append(e.target);
 })
-function addSearchButton() {
-    searchButton.addEventListener('click', search);
-}
+
   
