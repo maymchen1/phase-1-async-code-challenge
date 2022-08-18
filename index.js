@@ -16,7 +16,7 @@ const listList = document.getElementById ('list')
 //be able to list the shows
 const getShows = () => {
     fetch(baseUrl + '/shows')
-    .then(resp => resp.json())
+    .then(response => response.json())
     .then(data => {
       shows = data;
       renderShows(data)})
@@ -44,7 +44,6 @@ const search = (e) => {
 queuedList.addEventListener('click', function handleClick(e) {
     e.target.remove();
     getShows ();
-   //listList.append(e.target);
 });
 listList.addEventListener('click', function handleClick(e) {
     getShows();
