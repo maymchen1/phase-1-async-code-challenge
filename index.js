@@ -1,3 +1,4 @@
+//DOM CONTENT LOADED
 document.addEventListener ('DOMContentLoaded', () => {
     getShows();
     addSearchButton();
@@ -29,7 +30,6 @@ function renderShows(shows) {
     })
     //console.log (shows)
 }
-
 //be able to search through shows
 const search = (e) => {
     const searchString = searchInput.value.toLowerCase();
@@ -41,8 +41,40 @@ const search = (e) => {
     renderShows(filteredShows);
 };
 //click on the show in the show list to add it to the queued shows 
- 
-const addSearchButton = () => {
+queuedList.addEventListener('click', function handleClick(e) {
+   e.target.remove();
+   listList.append(e.target);
+});
+listList.addEventListener('click', function handleClick(e) {
+    queuedList.append(e.target);
+})
+/* const renderQueue = () => {
+    listList.innerHTML = ''
+    queued.forEach(show => queueShow(show))
+  } 
+  
+  const queueShow = show => {
+    const li = document.createElement("li");
+    li.textContent = show;
+    show.addEventListener("click", clickToRemove);
+    queuedList().appendChild(li);
+  } 
+/* const clickToAdd = e => {
+    list.addEventListener ("click", clickToAdd);
+    queued.push ()
+    //queuedList().remove() */
+//click on show to remove
+/*function clickToRemove(show) {
+    queuedList.addEventListener("click", function () {
+        queuedList.remove(show);
+    });
+}
+function clickToRemove(show) {
+    queuedList.addEventListener("click", function () {
+        queuedList.append(show);
+    }); */
+
+function addSearchButton() {
     searchButton.addEventListener('click', search);
-  }
+}
   
