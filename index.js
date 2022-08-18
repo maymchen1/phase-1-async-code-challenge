@@ -21,7 +21,9 @@ const getShows = () => {
     .then(data => {
       shows = data;
       renderShows(data)})
+      .catch((error) => console.log(error));
 }
+
 function renderShows(shows) {
     listList.innerHTML = ''
     shows.forEach (show => {
@@ -54,4 +56,26 @@ listList.addEventListener('click', function handleClick(e) {
     queuedList.append(e.target);
 })
 
-  
+/* //Alternative code// 
+// Add shows to list w/ click event
+function renderShows(shows) {
+  listList.innerHTML = "";
+  shows.forEach((show) => {
+    const showLI = document.createElement("li");
+    showLI.textContent = show.title;
+    showLI.addEventListener("click", function () {
+      addToQueue(showLI);
+    });
+    listList.append(showLI);
+  });
+}
+
+// Add show to queue and remove from queue on click
+function addToQueue(show) {
+  const newShowLI = document.createElement("li");
+  newShowLI.textContent = show.textContent;
+  queuedList.append(newShowLI);
+  newShowLI.addEventListener("click", function () {
+    newShowLI.remove();
+  });
+}*/
